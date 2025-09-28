@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Immersive 3D fire evacuation simulations for safety training and education by EduSafe 360">
+  <title>Fire Evacuation Simulations - EduSafe 360</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #007BFF;
+      --secondary-color: #0a1128;
+      --card-bg: #1a2540;
+      --text-primary: #e0e0e0;
+      --text-secondary: #aaa;
+      --text-muted: #ccc;
+      --shadow: 0 4px 20px rgba(0, 123, 255, 0.1);
+      --border-radius: 16px;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--secondary-color);
+      color: var(--text-primary);
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      color: var(--primary-color);
+      font-size: clamp(2rem, 5vw, 2.5rem);
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .simulations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .simulation-card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .simulation-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-color), #ff6b35);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .simulation-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 123, 255, 0.15);
+    }
+
+    .simulation-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .simulation-card h3 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .simulation-card h3::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--primary-color);
+      border-radius: 50%;
+    }
+
+    .simulation-card p {
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+      flex-grow: 1;
+    }
+
+    .embed-wrapper {
+      width: 100%;
+      height: 300px;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      background: #000;
+    }
+
+    .embed-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .vimeo-video {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .vimeo-video iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Focus styles for accessibility */
+    .simulation-card:focus-within {
+      outline: 2px solid var(--primary-color);
+      outline-offset: 2px;
+    }
+
+    /* Skip link for accessibility */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 6px;
+      background: var(--primary-color);
+      color: white;
+      padding: 8px 12px;
+      text-decoration: none;
+      border-radius: 4px;
+      z-index: 100;
+      font-weight: 600;
+    }
+
+    .skip-link:focus {
+      top: 6px;
+    }
+
+    /* Loading state */
+    .loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+
+    /* Card badges */
+    .card-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #ff6b35;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .simulations-grid {
+        gap: 20px;
+      }
+      
+      .simulation-card {
+        padding: 15px;
+      }
+      
+      .card-badge {
+        top: 15px;
+        right: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <div class="container">
+    <header>
+      <h1>Fire Evacuation Simulations</h1>
+      <p class="subtitle">Train for fire emergencies with realistic 3D drills and escape route practice.</p>
+    </header>
+
+    <main id="main-content">
+      <div class="simulations-grid">
+
+        <!-- Simulation 1 -->
+        <article class="simulation-card" tabindex="0">
+          <div class="card-badge">Interactive</div>
+          <h3>1. Classroom Fire Escape</h3>
+          <p>Practice evacuating a smoke-filled classroom using the "stay low and go" technique.</p>
+          <div class="embed-wrapper">
+            <iframe 
+              title="University Canteen Fire Safety Objects - 3D Model" 
+              loading="lazy"
+              src="https://sketchfab.com/models/6b2369d6217541799328e7d8200cc8ab/embed"
+              allow="autoplay; fullscreen; xr-spatial-tracking"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </article>
+
+        <!-- Simulation 2 -->
+        <article class="simulation-card" tabindex="0">
+          <div class="card-badge">Navigation</div>
+          <h3>2. Hallway Smoke Navigation</h3>
+          <p>Navigate through a dark, smoke-filled hallway using wall-touch guidance to find the nearest exit.</p>
+          <div class="embed-wrapper">
+            <iframe 
+              title="Abandoned Factory Building - 3D Model" 
+              loading="lazy"
+              src="https://sketchfab.com/models/0eb23859659a4112a714f9f18a52990e/embed"
+              allow="autoplay; fullscreen; xr-spatial-tracking"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </article>
+
+        <!-- Simulation 3 -->
+        <article class="simulation-card" tabindex="0">
+          <div class="card-badge">Stress Test</div>
+          <h3>3. Stairwell Evacuation Under Stress</h3>
+          <p>Simulate descending a crowded, dimly lit stairwell during a fire alarm. Avoid panic, follow signage.</p>
+          <div class="embed-wrapper">
+            <iframe 
+              title="Building Fire Analysis Montreal QC - 3D Model" 
+              loading="lazy"
+              src="https://sketchfab.com/models/e5e662cea3cf4d33889c550a131d3c13/embed"
+              allow="autoplay; fullscreen; xr-spatial-tracking"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </article>
+
+        <!-- Fire Safety Tips Video -->
+        <article class="simulation-card" tabindex="0">
+          <div class="card-badge">Training Video</div>
+          <h3>Fire Safety Tips</h3>
+          <p>Understand quick actions to take during fire emergencies and proper evacuation procedures.</p>
+          <div class="vimeo-video">
+            <iframe 
+              src="https://player.vimeo.com/video/72506774" 
+              title="Fire Safety Tips Video"
+              loading="lazy"
+              allow="autoplay; fullscreen; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </article>
+
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Enhanced initialization with lazy loading and error handling
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log("EduSafe 360 - Fire Evacuation Simulations Loaded");
+      
+      // Set up Intersection Observer for lazy loading
+      if ('IntersectionObserver' in window) {
+        const lazyIframes = document.querySelectorAll('iframe[loading="lazy"]');
+        
+        const iframeObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const iframe = entry.target;
+              iframe.src = iframe.dataset.src;
+              iframeObserver.unobserve(iframe);
+            }
+          });
+        });
+
+        lazyIframes.forEach(iframe => {
+          iframe.dataset.src = iframe.src;
+          iframe.src = '';
+          iframeObserver.observe(iframe);
+        });
+      }
+
+      // Add error handling for iframes
+      const iframes = document.querySelectorAll('iframe');
+      iframes.forEach(iframe => {
+        iframe.addEventListener('error', function() {
+          console.error('Failed to load iframe content:', this.src);
+          this.parentElement.innerHTML = '<div class="loading">Content failed to load. Please try again later.</div>';
+        });
+        
+        iframe.addEventListener('load', function() {
+          console.log('Iframe content loaded successfully:', this.src);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

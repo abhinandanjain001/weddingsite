@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Immersive 3D flood evacuation simulations for safety training and education by EduSafe 360">
+  <title>Flood Evacuation Simulations - EduSafe 360</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #007BFF;
+      --secondary-color: #0a1128;
+      --card-bg: #1a2540;
+      --text-primary: #e0e0e0;
+      --text-secondary: #aaa;
+      --text-muted: #ccc;
+      --shadow: 0 4px 20px rgba(0, 123, 255, 0.1);
+      --border-radius: 16px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--secondary-color);
+      color: var(--text-primary);
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      color: var(--primary-color);
+      font-size: clamp(2rem, 5vw, 2.5rem);
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: var(--primary-color);
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+    }
+
+    .subtitle {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .simulations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .simulation-card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .simulation-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 123, 255, 0.15);
+    }
+
+    .simulation-card h3 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+
+    .simulation-card p {
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+      flex-grow: 1;
+    }
+
+    .embed-wrapper {
+      width: 100%;
+      height: 300px;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .embed-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: #000;
+    }
+
+    .video-section {
+      margin-top: 50px;
+    }
+
+    /* Focus styles for accessibility */
+    .simulation-card:focus-within {
+      outline: 2px solid var(--primary-color);
+      outline-offset: 2px;
+    }
+
+    /* Skip link for accessibility */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 6px;
+      background: var(--primary-color);
+      color: white;
+      padding: 8px;
+      text-decoration: none;
+      border-radius: 4px;
+      z-index: 100;
+    }
+
+    .skip-link:focus {
+      top: 6px;
+    }
+
+    @media (max-width: 768px) {
+      .simulations-grid {
+        gap: 20px;
+      }
+      
+      .simulation-card {
+        padding: 15px;
+      }
+      
+      .video-section {
+        margin-top: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <div class="container">
+    <header>
+      <h1>Flood Evacuation Simulations</h1>
+      <p class="subtitle">Practice safe evacuation during flood scenarios in immersive 3D environments.</p>
+    </header>
+
+    <main id="main-content">
+      <section class="simulations-section">
+        <div class="simulations-grid">
+
+          <!-- Simulation 1 -->
+          <article class="simulation-card" tabindex="0">
+            <h3>1. Campus Flood Drill</h3>
+            <p>Experience rising floodwaters in a school building. Learn how to evacuate to higher floors or rooftops.</p>
+            <div class="embed-wrapper">
+              <iframe 
+                title="Jiadong Flooding - 3D model" 
+                loading="lazy"
+                src="https://sketchfab.com/models/309aca03bca744a49509cfb4069981bc/embed"
+                allow="autoplay; fullscreen; xr-spatial-tracking"
+                allowfullscreen
+                mozallowfullscreen="true" 
+                webkitallowfullscreen="true">
+              </iframe>
+            </div>
+          </article>
+
+          <!-- Simulation 2 -->
+          <article class="simulation-card" tabindex="0">
+            <h3>2. Urban Street Flooding</h3>
+            <p>Navigate flooded streets and avoid submerged vehicles or electrical hazards during heavy rainfall.</p>
+            <div class="embed-wrapper">
+              <iframe 
+                title="Huntington flooding case study - 3D model" 
+                loading="lazy"
+                src="https://sketchfab.com/models/1453958decbe4cd3979f9fff3f2eed34/embed"
+                allow="autoplay; fullscreen; xr-spatial-tracking"
+                allowfullscreen
+                mozallowfullscreen="true" 
+                webkitallowfullscreen="true">
+              </iframe>
+            </div>
+          </article>
+
+          <!-- Simulation 3 -->
+          <article class="simulation-card" tabindex="0">
+            <h3>3. Basement Escape Scenario</h3>
+            <p>Trapped in a flooded basement? Learn how to signal for help and use emergency exits before water rises.</p>
+            <div class="embed-wrapper">
+              <iframe 
+                title="Angel Mounds flooding 3 - 3D model" 
+                loading="lazy"
+                src="https://sketchfab.com/models/bfd3ebb132c54313af4e8df027a6f737/embed"
+                allow="autoplay; fullscreen; xr-spatial-tracking"
+                allowfullscreen
+                mozallowfullscreen="true" 
+                webkitallowfullscreen="true">
+              </iframe>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- Training Videos Section -->
+      <section class="video-section" aria-labelledby="training-videos-heading">
+        <h2 id="training-videos-heading">📺 Training Videos</h2>
+        <div class="simulations-grid">
+
+          <!-- Video 1 -->
+          <article class="simulation-card" tabindex="0">
+            <h3>Flood Safety Procedures</h3>
+            <p>Learn essential flood safety procedures and evacuation techniques from emergency services.</p>
+            <div class="embed-wrapper">
+              <iframe 
+                title="Victoria SES - Flood Safety Video"
+                loading="lazy"
+                src="https://player.vimeo.com/video/592693366?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </article>
+
+          <!-- Video 2 -->
+          <article class="simulation-card" tabindex="0">
+            <h3>Emergency Flood Response</h3>
+            <p>Understanding proper emergency response protocols during flash flood situations.</p>
+            <div class="embed-wrapper">
+              <div style="padding:56.25% 0 0 0;position:relative;">
+                <iframe 
+                  src="https://player.vimeo.com/video/165187420?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                  frameborder="0" 
+                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                  referrerpolicy="strict-origin-when-cross-origin" 
+                  style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+                  title="Emergency Flood Response">
+                </iframe>
+              </div>
+            </div>
+          </article>
+
+          <!-- Video 3 -->
+          <article class="simulation-card" tabindex="0">
+            <h3>Urban Flood Preparedness</h3>
+            <p>Essential tips for urban residents to prepare for and respond to flood emergencies.</p>
+            <div class="embed-wrapper">
+              <div style="padding:56.25% 0 0 0;position:relative;">
+                <iframe 
+                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen
+                  style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+                  title="Urban Flood Preparedness">
+                </iframe>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Add lazy loading for iframes
+    document.addEventListener('DOMContentLoaded', function() {
+      // Set up Intersection Observer for lazy loading
+      if ('IntersectionObserver' in window) {
+        const lazyIframes = document.querySelectorAll('iframe[loading="lazy"]');
+        
+        const iframeObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const iframe = entry.target;
+              iframe.src = iframe.dataset.src;
+              iframeObserver.unobserve(iframe);
+            }
+          });
+        });
+
+        lazyIframes.forEach(iframe => {
+          iframe.dataset.src = iframe.src;
+          iframe.src = '';
+          iframeObserver.observe(iframe);
+        });
+      }
+      
+      console.log("EduSafe 360 - Flood Evacuation Simulations Loaded");
+    });
+  </script>
+</body>
+</html>
