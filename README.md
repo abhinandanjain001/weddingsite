@@ -1,5 +1,5 @@
 💒 WeddingSite – Your Dream Wedding, Made Easy! 💍✨
-Welcome to WeddingSite, a dynamic full-stack web application built to make wedding planning stress-free and elegant! 💑🎉 Powered by HTML, CSS, JavaScript, Node.js, Express.js, EJS, and MongoDB, this project connects every piece of your special day in one seamless experience. 🛠️🧠
+Welcome to WeddingSite, a dynamic full-stack web application built to make wedding planning stress-free and elegant! 💑🎉 Powered by HTML, CSS, JavaScript, Node.js, Express.js, EJS, and Firebase, this project connects every piece of your special day in one seamless experience. 🛠️🧠
 
 ## 🌟 Features
 
@@ -19,7 +19,7 @@ Welcome to WeddingSite, a dynamic full-stack web application built to make weddi
 
 - **Frontend**: HTML5, CSS3, JavaScript, Bootstrap, GSAP, FontAwesome
 - **Backend**: Node.js, Express.js
-- **Database**: MongoDB (via Mongoose)
+- **Database**: Firebase Firestore
 - **Templating**: EJS
 - **Other**: Google Maps API, localStorage, jQuery, Shery.js, Three.js
 
@@ -54,7 +54,7 @@ maincel/
 │   └── login.css             # Login page CSS
 ├── src/
 │   ├── index.js              # Express server
-│   ├── config.js             # MongoDB config/schema
+│   ├── config.js             # Firebase Firestore config
 │   └── script.js             # Login/signup JS
 ├── views/
 │   ├── home.ejs              # EJS home template
@@ -75,21 +75,21 @@ maincel/
 ### 1. **Clone the Repository**
 
 ```sh
-git clone https://github.com/shreyanshgoy/weddingsite.git
+git clone https://github.com/abhinandanjain001/weddingsite.git
 cd maincel
 ```
 
 ### 2. **Install Dependencies**
 
-Make sure you have [Node.js](https://nodejs.org/) and [MongoDB](https://www.mongodb.com/) installed.
+Make sure you have [Node.js](https://nodejs.org/) installed.
 
 ```sh
 npm install
 ```
 
-### 3. **Start MongoDB**
+### 3. **Configure Environment Variables**
 
-Start your MongoDB server (default: `mongodb://localhost:27017/login`).
+Copy `.env.example` to `.env` inside `maincel/` and set your Firebase values, including Admin SDK credentials.
 
 ### 4. **Run the Application**
 

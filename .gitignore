@@ -1,0 +1,23 @@
+# Node modules
+node_modules/
+maincel/node_modules/
+
+# Build
+build/
+dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.*
+maincel/.env
+maincel/.env.*
+
+# OS / Editor
+.DS_Store
+.vscode/
+.idea/

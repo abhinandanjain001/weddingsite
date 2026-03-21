@@ -1,0 +1,20 @@
+{
+  "name": "weddingsite",
+  "version": "1.0.0",
+  "description": "💒 WeddingSite – Your Dream Wedding, Made Easy! 💍✨ Welcome to WeddingSite, a dynamic full-stack web application built to make wedding planning stress-free and elegant! 💑🎉 Powered by HTML, CSS, JavaScript, Node.js, Express.js, EJS, and MongoDB, this project connects every piece of your special day in one seamless experience. 🛠️🧠",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhinandanjain001/weddingsite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abhinandanjain001/weddingsite/issues"
+  },
+  "homepage": "https://github.com/abhinandanjain001/weddingsite#readme"
+}

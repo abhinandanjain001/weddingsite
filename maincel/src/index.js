@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require("path");
 const bcrypt = require("bcrypt");
-const { request } = require('http');
+require("dotenv").config({ path: path.join(__dirname, "../.env") });
 const collection = require("./config");
 
 const app = express();
@@ -80,7 +80,7 @@ app.post("/login" , async(req , res)=>{
      }
 });
 
-const port = 5050;
+const port = process.env.PORT || 5050;
 app.listen(port ,()=>{
     console.log(`server running on port ${port}`);
 })
