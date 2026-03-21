@@ -73,7 +73,7 @@ app.post("/login" , async(req , res)=>{
             res.sendFile(path.join(__dirname, '../loading/index0.html'));
         }
         else{
-            req.send("wrong password");
+            res.send("wrong password");
         }
      } catch{
             res.send("wrong details");
