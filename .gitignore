@@ -16,6 +16,7 @@ yarn-error.log*
 .env.*
 maincel/.env
 maincel/.env.*
+maincel/env.js
 
 # OS / Editor
 .DS_Store
