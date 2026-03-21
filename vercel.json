@@ -1,8 +1,9 @@
 {
   "version": 2,
+  "buildCommand": "echo 'Static site - no build needed'",
+  "outputDirectory": "maincel",
   "routes": [
-    { "handle": "filesystem" },
-    { "src": "^/$", "dest": "/maincel/index.html" },
-    { "src": "^/(.*)$", "dest": "/maincel/$1" }
+    { "src": "^/(?!maincel/).*", "dest": "/maincel$0" },
+    { "handle": "filesystem" }
   ]
 }
