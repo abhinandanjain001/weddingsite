@@ -72,8 +72,17 @@ header .active{
  display: none;
 }
 
+.header-tools{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: 10px;
+}
+
 .nav{
     display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
 }
 
 .nav li{
@@ -113,7 +122,7 @@ header .active{
 
 .search{
     position: relative;
-    width: 300px;
+    width: 170px;
     height: 40px;
     transition: 0.5px;
 }
@@ -148,7 +157,7 @@ ul li{
 
  .search {
     position: relative;
-    width: 220px;
+    width: 170px;
     height: 42px;
     transition: 0.5s;
     margin-right: 0;
@@ -304,9 +313,7 @@ ul li{
 
 
 .lang{
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
+    position: static;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -329,6 +336,19 @@ ul li{
     .search{
         width: 100%;
         order: 3;
+    }
+
+    .header-tools{
+        width: 100%;
+        order: 4;
+        margin-left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .language_1{
+        margin-left: 0;
     }
 
     .nav{
@@ -595,14 +615,15 @@ section .row{
 } */
 
 .language_1{
-    margin-left: 100px;
+    margin-left: 0;
 }
 
 
 /* Scale the entire translate widget */
 #google_translate_element {
-    transform: scale(0.7);  /* Adjust scale as needed */
+    transform: scale(0.8);
     transform-origin: left center;
+    min-width: 128px;
 }
 
 /* Style the language dropdown */
