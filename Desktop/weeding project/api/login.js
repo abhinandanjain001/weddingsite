@@ -1,5 +1,5 @@
 const bcrypt = require("bcryptjs");
-const collection = require("../weddingsite/maincel/src/config");
+const collection = require("./store");
 
 module.exports = async function loginHandler(req, res) {
   if (req.method !== "POST") {
