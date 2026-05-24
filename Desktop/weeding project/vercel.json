@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "buildCommand": "echo 'Static site - no build needed'",
+  "outputDirectory": "weddingsite/maincel",
+  "routes": [
+    { "src": "^/(login|signup)$", "dest": "/api/$1" },
+    { "handle": "filesystem" }
+  ]
+}
