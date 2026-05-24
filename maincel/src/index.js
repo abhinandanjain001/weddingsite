@@ -12,7 +12,7 @@ app.use(express.urlencoded({extended:false}));
 app.set('views', path.join(__dirname, '../views'));
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.static(path.join(__dirname, '../src')));
-app.use(express.static(path.join(__dirname, '../loading')));
+app.use('/loading', express.static(path.join(__dirname, '../loading')));
 
 
 
