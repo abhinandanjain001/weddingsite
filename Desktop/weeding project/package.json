@@ -1,0 +1,13 @@
+{
+  "name": "weeding-project-root",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Root deployment manifest for the weddingsite project.",
+  "scripts": {
+    "test": "echo \"No root tests\""
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "firebase-admin": "^12.7.0"
+  }
+}
