@@ -53,6 +53,7 @@ app.post("/signup" , async(req ,res)=>{
 
         const userdata = await collection.insertMany(data);
     console.log(userdata);
+        return res.redirect("/");
     }
 
     
@@ -63,7 +64,7 @@ app.post("/login" , async(req , res)=>{
      try{
         const check = await collection.findOne({name:req.body.username});
         if(!check){
-            res.send("user name cannot found");
+            return res.send("user name cannot found");
         }
         
         //compare the hash password from the database with the plain text

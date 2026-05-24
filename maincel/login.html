@@ -13,6 +13,7 @@
 
 
 <body>
+  <a class="back-button" href="javascript:history.back()">Back</a>
   <!-- id="body" -->
 
 <!-- <video autoplay loop muted playsinline id="background-video">
@@ -21,7 +22,7 @@
 <!-- <i class="fa-solid fa-backward"></i> -->
     <div class="container" id="container">
       <div class="form-container sign-up">
-        <form id="signupForm" action="javascript:void(0)">
+        <form id="signupForm" action="/signup" method="post">
           <h1>Create Account</h1>
           <div class="social-icons">
             <a href="#" class="icon"
@@ -34,14 +35,14 @@
             ></a>
           </div>
           <span>or use your email for registeration</span>
-          <input type="text" placeholder="Name" id="signupName" required />
-          <input type="email" placeholder="Email" id="signupEmail" required autocomplete="off"/>
-          <input type="password" placeholder="Password" id="signupPassword" required/>
+          <input type="text" placeholder="Name" id="signupName" name="username" required autocomplete="off" />
+          <input type="email" placeholder="Email" id="signupEmail" name="email" required autocomplete="off" />
+          <input type="password" placeholder="Password" id="signupPassword" name="password" required />
           <button type="submit" >Sign Up</button>
         </form>
       </div>
       <div class="form-container sign-in">
-        <form id="loginForm" action="javascript:void(0)">
+        <form id="loginForm" action="/login" method="post">
           <h1>Sign In</h1>
           <div class="social-icons">
             <a href="#" class="icon"
@@ -54,8 +55,8 @@
             ></a>
           </div>
           <span>or use your email password</span>
-          <input type="email" placeholder="Email" id="loginEmail" required />
-          <input type="password" placeholder="Password" id="loginPassword" required />
+          <input type="email" placeholder="Email" id="loginEmail" name="username" required autocomplete="off" />
+          <input type="password" placeholder="Password" id="loginPassword" name="password" required />
           <a href="#">Forget Your Password?</a>
           <button type="submit">Sign In</button>
         </form>
@@ -79,63 +80,5 @@
     </div>
 
     <script src="script.js"></script>
-    <script src="env.js"></script>
-    <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
-      import {
-        getAuth,
-        createUserWithEmailAndPassword,
-        signInWithEmailAndPassword,
-        updateProfile
-      } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
-
-      const firebaseConfig = {
-        apiKey: window.__APP_ENV__?.FIREBASE_API_KEY || "",
-        authDomain: window.__APP_ENV__?.FIREBASE_AUTH_DOMAIN || "",
-        projectId: window.__APP_ENV__?.FIREBASE_PROJECT_ID || "",
-        storageBucket: window.__APP_ENV__?.FIREBASE_STORAGE_BUCKET || "",
-        messagingSenderId: window.__APP_ENV__?.FIREBASE_MESSAGING_SENDER_ID || "",
-        appId: window.__APP_ENV__?.FIREBASE_APP_ID || "",
-        measurementId: window.__APP_ENV__?.FIREBASE_MEASUREMENT_ID || ""
-      };
-
-      const app = initializeApp(firebaseConfig);
-      const auth = getAuth(app);
-
-      const signupForm = document.getElementById("signupForm");
-      const loginForm = document.getElementById("loginForm");
-
-      signupForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const name = document.getElementById("signupName").value.trim();
-        const email = document.getElementById("signupEmail").value.trim();
-        const password = document.getElementById("signupPassword").value;
-
-        try {
-          const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-          if (name) {
-            await updateProfile(userCredential.user, { displayName: name });
-          }
-          alert("Signup successful");
-          window.location.href = "loading/index0.html";
-        } catch (error) {
-          alert(error.message);
-        }
-      });
-
-      loginForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const email = document.getElementById("loginEmail").value.trim();
-        const password = document.getElementById("loginPassword").value;
-
-        try {
-          await signInWithEmailAndPassword(auth, email, password);
-          alert("Login successful");
-          window.location.href = "loading/index0.html";
-        } catch (error) {
-          alert(error.message);
-        }
-      });
-    </script>
   </body>
 </html>
