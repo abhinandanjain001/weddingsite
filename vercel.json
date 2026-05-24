@@ -3,7 +3,8 @@
   "buildCommand": "echo 'Static site - no build needed'",
   "outputDirectory": "maincel",
   "routes": [
-    { "src": "^/(?!maincel/).*", "dest": "/maincel$0" },
+    { "src": "^/(login|signup)$", "dest": "/api/$1" },
+    { "src": "^/(?!api/|maincel/).*", "dest": "/maincel$0" },
     { "handle": "filesystem" }
   ]
 }
