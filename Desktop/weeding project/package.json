@@ -7,6 +7,7 @@
     "test": "echo \"No root tests\""
   },
   "dependencies": {
+    "bcrypt": "npm:bcryptjs@^2.4.3",
     "bcryptjs": "^2.4.3",
     "firebase-admin": "^12.7.0"
   }
