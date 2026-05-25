@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require("path");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 require("dotenv").config({ path: path.join(__dirname, "../.env") });
 const collection = require("./config");
 

@@ -1,4 +1,4 @@
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const collection = require("../maincel/src/config");
 
 module.exports = async function signupHandler(req, res) {
