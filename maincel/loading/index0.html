@@ -3,68 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loading...</title>
-    <style>
-        body {
-            background: black;
-            color: white;
-            font-family: 'Dancing Script', cursive;
-            text-align: center;
-            overflow: hidden;
-        }
-        
-        .circle-text {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            font-size: 1.8em;
-            font-weight: bold;
-            animation: rotateText 6s linear infinite;
-        }
-
-        @keyframes rotateText {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-
-    </style>
-</head>
-<body>
-    <div class="circle-text">
-        💍 "A Match Made in Heaven" 💖 <br> Loading...
-    </div>
-
-    <script>
-        setTimeout(function() {
-            window.location.href = "index2.html"; 
-        }, 5000);
-    </script>
-</body>
-</html> -->
-
-
-
-
-<!DOCTYPE html>
-<html lang="eng">
-	<head>
-		<title>heart</title>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Loading...</title>
         <style>
-
-             body {
-            background: black;
-            color: white;
-            font-family: 'Dancing Script', cursive;
-            text-align: center;
-            overflow: hidden;
-                 }
+            body{background:#000;color:#fff;font-family:Arial,Helvetica,sans-serif;text-align:center;padding-top:20vh}
+            a.back-button{position:absolute;left:12px;top:12px;color:#fff;text-decoration:none}
+        </style>
+        <!-- simple redirect to the next loading page; no animations -->
+        <meta http-equiv="refresh" content="3;url=/loading/madime/index.html">
+    </head>
+    <body>
+        <a class="back-button" href="javascript:history.back()">Back</a>
+        <h1>Loading…</h1>
+        <p>Redirecting shortly...</p>
+    </body>
+    </html>
 
              .circle-text {
             position: absolute;
